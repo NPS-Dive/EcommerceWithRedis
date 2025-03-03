@@ -10,7 +10,8 @@ export const get: RequestHandler<any, any> = async ({ url, locals }) => {
 		tag: (url.searchParams.get('tag') ?? '').replace(/[^a-zA-Z0-9 -]/gi, '')
 	};
 
-	const { items, totalPages } = await itemsByUser(locals.session.userId, sort);
+	
+	const { items, totalPages }:any = await itemsByUser(locals.session.userId, sort);
 
 	return {
 		body: { items, totalPages }
